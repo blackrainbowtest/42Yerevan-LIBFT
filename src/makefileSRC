@@ -1,0 +1,20 @@
+SRCS 
+SRCSB
+OBJS
+OBJSB
+NAME
+LIBC
+CC
+RM
+CFLAGS
+
+.c.o
+
+${NAME}
+all:
+	bonus
+	clean
+	fclean
+	re
+
+.PHONY
