@@ -1,3 +1,12 @@
+objects = ft_isalpha.o ft_isdifit.o \
+		  main.c
+
+flags = -Wall -Werror -Wextra
+
+CC = cc
+
+:w
+
 all: f1.o f2.o
 
 f1.o f2.o:
