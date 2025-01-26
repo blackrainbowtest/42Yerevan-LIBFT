@@ -1,5 +1,5 @@
 # C sources
-CSRC := ft_isalpha.c ft_isdifit.c \
+CSRC := ft_isalpha.c ft_isdigit.c \
 		  main.c
 # Create object files from C sources files
 OSRC = $(CSRC:.c=.o)
@@ -14,19 +14,28 @@ NAME := libft.a
 
 # Define how must compile all C files to O files
 .c.o:
-#	compiler|flags|only compile|$< current file name|set name as|replace file type .c to .o
+	# compiler|flags|only compile|$< current file name|set name as|replace file type .c to .o
 	${CC} ${FLAGS} -c $< -o $@
 
+# Build my library
 all: ${NAME}
 
+# Build my library
+# ar - Create/Modify archive
+# r - add/replace files
+# c - create new archive
+# s - create symbol index
 ${NAME}: ${OSRC}
 	ar rcs $@ $^
 
+# clean obj files only
 clean:
 	${RM} ${OSRC}
 
+# clean all files
 fclean: clean
 	${RM} ${NAME}
 
+# clean all files and compile again
 re: fclean all
 
