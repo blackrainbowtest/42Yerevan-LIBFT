@@ -1,18 +1,20 @@
-objects = ft_isalpha.o ft_isdifit.o \
+# C sources
+CSRC := ft_isalpha.c ft_isdifit.c \
 		  main.c
+# Create object files from C sources files
+OSRC = $(csrc:.c=.o)
+# Define flags
+FLAGS := -Wall -Werror -Wextra
+# Define compiler type (if not define by default gcc)
+CC := cc
+# Sortcat for remove comand
+RM := rm -f
+# Define program name
+NAME := libft.a
 
-flags = -Wall -Werror -Wextra
+# Define how must compile all C files to O files
+.c.o:
+#	compiler|flags|only compile|$< current file name|set name as|replace file type .c to .o
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
-CC = cc
 
-:w
-
-all: f1.o f2.o
-
-f1.o f2.o:
-	echo $@
-# Equivalent to:
-# f1.o:
-#	 echo f1.o
-# f2.o:
-#	 echo f2.o
