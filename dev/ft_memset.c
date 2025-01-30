@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 21:55:55 by aramarak          #+#    #+#             */
-/*   Updated: 2025/01/29 22:15:17 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:44:22 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	tmp = s;
 	while (i < n)
 	{
-		s[i] = c;
+		tmp[i] = c;
 		i++;
 	}
 	return (s);
