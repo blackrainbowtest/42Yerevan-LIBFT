@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 21:46:34 by aramarak          #+#    #+#             */
-/*   Updated: 2025/01/30 20:41:53 by aramarak         ###   ########.fr       */
+/*   Created: 2025/01/30 21:28:17 by aramarak          #+#    #+#             */
+/*   Updated: 2025/01/30 21:45:23 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	void	*dtmp;
+	void	*stmp;
+
+	if (!dest || !src)
+		return (NULL);
+
+	
+	return (dest);
 }
