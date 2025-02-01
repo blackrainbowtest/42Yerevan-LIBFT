@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:02:38 by aramarak          #+#    #+#             */
-/*   Updated: 2025/01/30 21:41:46 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:39:18 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 
+size_t	ft_strlen(const char *str);
 #endif

@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:56:31 by aramarak          #+#    #+#             */
-/*   Updated: 2025/01/30 21:38:18 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:53:01 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (!dest || !src)
+	if (!dest && !src)
 		return (NULL);
 	i = 0;
 	if (n != 0 || dest != src)
