@@ -4,9 +4,12 @@ CSRC := ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		ft_memset.c ft_strlen.c ft_strlcpy.c ft_strlcat.c \
 		ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
 		ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
-		ft_atoi.c \
+		ft_atoi.c ft_calloc.c ft_strdup.c \
+		ft_substr.c ft_strjoin.c \
+#CSRCB := \
 # Create object files from C sources files
 OSRC = $(CSRC:.c=.o)
+#OSRCB = $(CSRCB:.c=.o)
 # Define flags
 FLAGS := -Wall -Werror -Wextra
 # Define compiler type (if not define by default gcc)
@@ -24,6 +27,9 @@ NAME := libft.a
 # Build my library
 all: ${NAME}
 
+#bonus: ${NAME} ${OSRCB}
+#	ar rcs ${NAME} ${OSRCB}
+
 # Build my library
 # ar - Create/Modify archive
 # r - add/replace files
@@ -32,11 +38,11 @@ all: ${NAME}
 ${NAME}: ${OSRC}
 	ar rcs $@ $^
 
-# clean obj files only
+# clean obj files only ${OSRCB}
 clean:
 	${RM} ${OSRC}
 
-# clean all files
+# clean all files ${bonus}
 fclean: clean
 	${RM} ${NAME}
 
