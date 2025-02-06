@@ -1,31 +1,96 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/06 19:31:26 by aramarak          #+#    #+#             */
+/*   Updated: 2025/02/06 21:15:17 by aramarak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-// free memory on any error **arr
-static char	**ft_free(char **split, int size)
+static char	**ft_free(char **split)
 {
+	char	**tmp;
 
-	return (0);
+	tmp = split;
+	while (*tmp)
+	{
+		free(*tmp);
+		split++;
+	}
+	free(*tmp);
+	free(split);
+	return (NULL);
 }
 
-// detect words using sperator
 static size_t	ft_word_count(const char *s, char c)
 {
 	size_t	word_count;
 
 	word_count = 0;
-	
-
+	while (*s)
+	{
+		if (*s == c)
+			s++;
+		else
+		{
+			word_count++;
+			while (*s && *s != c)
+				s++;
+		}
+	}
 	return (word_count);
 }
 
-// make dynamic array memory my word len + 1 use strdup()?
-static char	**ft_dynamic_array(const char *s, char c, char ** split_arr, size_t word_count)
+static char	**ft_dynamic_add(const char *s, char **split_arr,
+		size_t start, size_t len)
 {
+	char	**result;
+
+	result = split_arr;
+	while (*result)
+		result++;
+	*result = ft_substr(s, start, len);
+	if (!result)
+	{
+		ft_free(split_arr);
+		return (NULL);
+	}
 	return (split_arr);
 }
 
+static char	**ft_dynamic_array(const char *s, char c, char **split_arr)
+{
+	size_t		start;
+	size_t		end;
+	const char	*stmp;
 
-
+	stmp = s;
+	start = 0;
+	while (*stmp)
+	{
+		while (*stmp && *stmp == c)
+		{
+			stmp++;
+			start++;
+		}
+		if (!*stmp)
+			return (split_arr);
+		end = start;
+		while (*stmp && *stmp != c)
+		{
+			stmp++;
+			end++;
+		}
+		ft_dynamic_add(s, split_arr, start, end - start);
+		start = end;
+	}
+	return (split_arr);
+}
 
 char	**ft_split(const char *s, char c)
 {
@@ -38,6 +103,7 @@ char	**ft_split(const char *s, char c)
 	split_arr = (char **)ft_calloc(word_count + 1, sizeof(char *));
 	if (!split_arr)
 		return (NULL);
-	split_arr = ft_dynamic_array(s, c, split_arr, word_count);
+	split_arr[word_count] = NULL;
+	split_arr = ft_dynamic_array(s, c, split_arr);
 	return (split_arr);
 }
