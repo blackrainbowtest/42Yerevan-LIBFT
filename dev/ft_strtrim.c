@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/06 19:13:21 by aramarak          #+#    #+#             */
+/*   Updated: 2025/02/06 19:18:44 by aramarak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strtrim(const char *s1, const char *set)
@@ -19,5 +31,6 @@ char	*ft_strtrim(const char *s1, const char *set)
 	strtrim = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!strtrim)
 		return (NULL);
+	ft_memcpy(strtrim, s1 + start, len);
 	return (strtrim);
 }
