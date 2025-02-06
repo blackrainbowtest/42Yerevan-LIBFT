@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:02:38 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/05 21:51:54 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/02/06 20:42:24 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 // Part 2 - Additional functions
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strtrim(const char *s1, const char *set);
+
+char	**ft_split(const char *s, char c);
 #endif
