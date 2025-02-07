@@ -16,13 +16,14 @@ static char	**ft_free(char **split)
 {
 	size_t	i;
 
+	if (!split)
+		return (NULL);
 	i = 0;
 	while (split[i])
 	{
 		free(split[i]);
 		i++;
 	}
-	free(split[i]);
 	free(split);
 	return (NULL);
 }
@@ -49,16 +50,15 @@ static size_t	ft_word_count(const char *s, char c)
 static char	**ft_dynamic_add(const char *s, char **split_arr,
 		size_t start, size_t len)
 {
-	char	**result;
+	size_t	i;
 
-	result = split_arr;
-	while (*result)
-		result++;
-	*result = ft_substr(s, start, len);
-	if (!*result)
+	i = 0;
+	while (split_arr[i])
+		i++;
+	split_arr[i] = ft_substr(s, start, len);
+	if (!split_arr[i])
 	{
-		ft_free(split_arr);
-		return (NULL);
+		return (ft_free(split_arr));
 	}
 	return (split_arr);
 }
@@ -69,24 +69,21 @@ static char	**ft_dynamic_array(const char *s, char c, char **split_arr)
 	size_t		end;
 	const char	*stmp;
 
-	stmp = s;
 	start = 0;
-	while (*stmp)
+	stmp = s;
+	while (*s)
 	{
-		while (*stmp && *stmp == c)
-		{
-			stmp++;
-			start++;
-		}
-		if (!*stmp)
+		while (*s && *s == c && ++start)
+			s++;
+		if (!*s)
 			return (split_arr);
 		end = start;
-		while (*stmp && *stmp != c)
+		while (*s && *s != c)
 		{
 			end++;
-			stmp++;
+			s++;
 		}
-		if (ft_dynamic_add(s, split_arr, start, end - start))
+		if (!ft_dynamic_add(stmp, split_arr, start, end - start))
 			return (NULL);
 		start = end;
 	}
