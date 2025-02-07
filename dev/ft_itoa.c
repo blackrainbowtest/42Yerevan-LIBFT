@@ -1,5 +1,16 @@
-# include "libft"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 19:12:34 by aramarak          #+#    #+#             */
+/*   Updated: 2025/02/07 19:55:55 by aramarak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "libft.h"
 static size_t	ft_num_len(int n)
 {
 	size_t	len;
@@ -19,7 +30,7 @@ char	*ft_convert_to_str(char *str, size_t len, unsigned int num)
 {
 	while (num > 0)
 	{
-		str[len - 1] = '0' + (num % 10);
+		str[--len] = ((num % 10) + 48);
 		num /= 10;
 	}
 	return (str);
@@ -45,5 +56,14 @@ char	*ft_itoa(int n)
 	else
 		num = n;
 	str = ft_convert_to_str(str, len, num);
-	return (str);		
+	return (str);
 }
+/*
+int	main(int argc, char *argv[])
+{
+	char	*str;
+
+	str = ft_itoa(ft_atoi(argv[1]));
+	printf("\n%s\n", str);
+	return (0);
+}*/
