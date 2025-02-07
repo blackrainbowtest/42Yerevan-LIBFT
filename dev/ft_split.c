@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:31:26 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/06 21:15:17 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/02/07 21:08:41 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static char	**ft_free(char **split)
 {
-	char	**tmp;
+	size_t	i;
 
-	tmp = split;
-	while (*tmp)
+	i = 0;
+	while (split[i])
 	{
-		free(*tmp);
-		split++;
+		free(split[i]);
+		i++;
 	}
-	free(*tmp);
+	free(split[i]);
 	free(split);
 	return (NULL);
 }
@@ -55,7 +55,7 @@ static char	**ft_dynamic_add(const char *s, char **split_arr,
 	while (*result)
 		result++;
 	*result = ft_substr(s, start, len);
-	if (!result)
+	if (!*result)
 	{
 		ft_free(split_arr);
 		return (NULL);
@@ -83,10 +83,11 @@ static char	**ft_dynamic_array(const char *s, char c, char **split_arr)
 		end = start;
 		while (*stmp && *stmp != c)
 		{
-			stmp++;
 			end++;
+			stmp++;
 		}
-		ft_dynamic_add(s, split_arr, start, end - start);
+		if (ft_dynamic_add(s, split_arr, start, end - start))
+			return (NULL);
 		start = end;
 	}
 	return (split_arr);
@@ -105,5 +106,7 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	split_arr[word_count] = NULL;
 	split_arr = ft_dynamic_array(s, c, split_arr);
+	if (!split_arr)
+		return (NULL);
 	return (split_arr);
 }
