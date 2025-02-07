@@ -6,11 +6,12 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:12:34 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/07 19:55:55 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:03:02 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static size_t	ft_num_len(int n)
 {
 	size_t	len;
@@ -26,7 +27,7 @@ static size_t	ft_num_len(int n)
 	return (len);
 }
 
-char	*ft_convert_to_str(char *str, size_t len, unsigned int num)
+static char	*ft_convert_to_str(char *str, size_t len, unsigned int num)
 {
 	while (num > 0)
 	{
