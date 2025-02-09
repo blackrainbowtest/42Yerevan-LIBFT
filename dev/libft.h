@@ -6,7 +6,7 @@
 /*   By: aramarak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:02:38 by aramarak          #+#    #+#             */
-/*   Updated: 2025/02/07 20:36:58 by aramarak         ###   ########.fr       */
+/*   Updated: 2025/02/09 15:11:57 by aramarak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,11 @@ typedef struct s_list
 }					t_list;
 
 t_list	*ft_lstnew(void *content);
+t_list	*ft_lstize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+int		ft_lstsize(t_list *lst);
 #endif
