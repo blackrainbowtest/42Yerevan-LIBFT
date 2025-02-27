@@ -1,4 +1,4 @@
-# 42Yerevan LIBFT 🏛️
+# 42Yerevan LIBFT 🏛️ [ԲՈԼՈՐ ՊՐՈԵԿՏՆԵՐԸ] (https://github.com/blackrainbowtest/42_YEREVAN_INDEX)
 
 ## 📌 Պրոեկտի մասին
 
